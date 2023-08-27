@@ -21,12 +21,17 @@ class Customer:
 
     @classmethod
     def add_customer(cls,customer):
-        cls.customers.append(customer)               
+        cls.customers.append(customer)
+    @classmethod
+    def all(cls):
+        print (cls.customers)                   
+        return cls.customers                   
         
        
     
-john=Customer("john","doe")  
-print(Customer.customers)
+john=Customer("john","doe") 
+mary=Customer("mary","jane") 
+Customer.all()
 
 
 
