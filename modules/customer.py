@@ -2,6 +2,7 @@ from review import Review
 class Customer:
 
     customers=[]
+   
     
     def __init__(self,first_name,last_name):
         self.first_name=first_name
@@ -17,12 +18,10 @@ class Customer:
     def family_name(self):
         print(self.last_name)
         return self.last_name  
-    
-
-
     def full_name(self):
-        print (f"{self.first_name} {self.last_name}")                
-        return f"{self.first_name} {self.last_name}" 
+        print (f"{self.first_name} {self.last_name}") 
+        return f"{self.first_name} {self.last_name}"               
+         
 
     @classmethod
     def add_customer(cls,customer):
@@ -38,18 +37,30 @@ class Customer:
                 self.restaurants.append(rev["restaurant"])
 
     def add_review(self,restaurant,rating):
-        Review(self.first_name,restaurant,rating)  
-        
-                  
-        
-        
+        Review(self.first_name,restaurant,rating)
 
-        
-       
-    
+    def num_reviews(self):
+        return len(self.restaurants)  
+
+    @classmethod
+    def find_by_name(cls,name):
+        for customer in cls.customers:
+            if customer.full_name() == name:
+                found=customer
+                break
+        return found 
+    @classmethod
+    def find_all_by_given_name(cls,name):
+        found=[]
+        for customer in cls.customers:
+            if customer.given_name() == name:
+                found.append(customer)
+        return found        
+            
 john=Customer("john","doe") 
 mary=Customer("mary","jane")
 ken=Customer("ken","johns")
+Customer.find_all_by_given_name("jane")
 
 
 

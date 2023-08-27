@@ -31,11 +31,7 @@ class Review:
     def all(cls):
         print(cls.reviews)
         return cls.reviews    
-
-
-             
-
-
+    
 joe=Review("joe","hilton","5")
 mary=Review("mary","bulleys",7)
 
